@@ -1,0 +1,343 @@
+a41 -> SpaceOrEmpty a42 | ComparisonOp a43
+a43 -> SpaceOrEmpty IdentifierName |  a161 | Letter IdentifierName2 | '_' | Letter 
+a51 -> SpaceOrEmpty a52 | ComparisonOp a53
+a53 -> SpaceOrEmpty Value | OtherChar a181 | OtherChar a191 | Letter a201 | Number Numbers | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | Numbers a11 | OtherChar a231 | OtherChar a241 | OtherChar a251 | OtherChar a261 | Letter a21 | Letter a31 | IdentifierName a41 | IdentifierName a51 | Letter a61 | Letter a71 |  a161 | Letter IdentifierName2 | '_' | Letter  | IdentifierName a371 | IdentifierName a381 | IdentifierName a371 | IdentifierName a381 | IdentifierName a171 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a73 -> SpaceOrEmpty a74 | OtherChar a75
+EOL -> SpaceOrEmpty a81 | OtherChar a82
+a171 -> SpaceOrEmpty a172 | OtherChar a173
+a173 -> SpaceOrEmpty Variable | IdentifierName a171 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a221 -> SpaceOrEmpty a222 | Operator OperatedValue
+DictionaryContents -> SpaceOrEmpty a271 | SpaceOrEmpty a281 | OperatedValue a272 | OperatedValue a282 | '♀' | Space Space
+a272 -> SpaceOrEmpty a273 | OtherChar a274
+a274 -> SpaceOrEmpty a275 | OperatedValue SpaceOrEmpty | OpParValue a221 | OtherChar a211 | OtherChar a181 | OtherChar a191 | Letter a201 | Number Numbers | Numbers a11 | OtherChar a231 | OtherChar a241 | OtherChar a251 | OtherChar a261 | Letter a21 | Letter a31 | IdentifierName a41 | IdentifierName a51 | Letter a61 | Letter a71 | IdentifierName a371 | IdentifierName a381 | IdentifierName a171 | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' |  a161 | Letter IdentifierName2 | '_' | Letter  | IdentifierName a371 | IdentifierName a381 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a275 -> OperatedValue SpaceOrEmpty | OpParValue a221 | OtherChar a211 | OtherChar a181 | OtherChar a191 | Letter a201 | Number Numbers | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | Numbers a11 | OtherChar a231 | OtherChar a241 | OtherChar a251 | OtherChar a261 | Letter a21 | Letter a31 | IdentifierName a41 | IdentifierName a51 | Letter a61 | Letter a71 |  a161 | Letter IdentifierName2 | '_' | Letter  | IdentifierName a371 | IdentifierName a381 | IdentifierName a371 | IdentifierName a381 | IdentifierName a171 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a282 -> SpaceOrEmpty a283 | OtherChar a284
+a284 -> SpaceOrEmpty a285 | OperatedValue a286
+a286 -> SpaceOrEmpty a287 | OtherChar DictionaryContents
+Contents -> SpaceOrEmpty a291 | SpaceOrEmpty a301 | OperatedValue SpaceOrEmpty | OperatedValue a302 | OpParValue a221 | OtherChar a211 | '♀' | Space Space | OtherChar a181 | OtherChar a191 | Letter a201 | Number Numbers | Numbers a11 | OtherChar a231 | OtherChar a241 | OtherChar a251 | OtherChar a261 | Letter a21 | Letter a31 | IdentifierName a41 | IdentifierName a51 | Letter a61 | Letter a71 | IdentifierName a371 | IdentifierName a381 | IdentifierName a171 | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' |  a161 | Letter IdentifierName2 | '_' | Letter  | IdentifierName a371 | IdentifierName a381 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a291 -> OperatedValue SpaceOrEmpty | OpParValue a221 | OtherChar a211 | OtherChar a181 | OtherChar a191 | Letter a201 | Number Numbers | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | Numbers a11 | OtherChar a231 | OtherChar a241 | OtherChar a251 | OtherChar a261 | Letter a21 | Letter a31 | IdentifierName a41 | IdentifierName a51 | Letter a61 | Letter a71 |  a161 | Letter IdentifierName2 | '_' | Letter  | IdentifierName a371 | IdentifierName a381 | IdentifierName a371 | IdentifierName a381 | IdentifierName a171 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a302 -> SpaceOrEmpty a303 | OtherChar Contents
+a327 -> SpaceOrEmpty a328 | OtherChar EOL
+a335 -> SpaceOrEmpty a336 | OtherChar a337
+a337 -> SpaceOrEmpty a338 | Arguments a339 | SpaceOrEmpty a3310 | OtherChar a3311
+a339 -> SpaceOrEmpty a3310 | OtherChar a3311
+a3311 -> SpaceOrEmpty a3312 | OtherChar EOL
+a341 -> SpaceOrEmpty a342 | OtherChar a343
+a343 -> SpaceOrEmpty Arguments | Argument a341 | IdentifierName a351 |  a161 | Letter IdentifierName2 | '_' | Letter  | '♀' | Space Space
+a351 -> SpaceOrEmpty a352 | AssignmentOp a353
+a353 -> SpaceOrEmpty OperatedValue | OpParValue a221 | OtherChar a211 | OtherChar a181 | OtherChar a191 | Letter a201 | Number Numbers | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | Numbers a11 | OtherChar a231 | OtherChar a241 | OtherChar a251 | OtherChar a261 | Letter a21 | Letter a31 | IdentifierName a41 | IdentifierName a51 | Letter a61 | Letter a71 |  a161 | Letter IdentifierName2 | '_' | Letter  | IdentifierName a371 | IdentifierName a381 | IdentifierName a371 | IdentifierName a381 | IdentifierName a171 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a371 -> SpaceOrEmpty a372 | OtherChar a373
+a373 -> SpaceOrEmpty a374 | IdentifierName a375
+a375 -> SpaceOrEmpty a376 | OtherChar a377
+a381 -> SpaceOrEmpty a382 | OtherChar a383
+a3910 -> SpaceOrEmpty OtherChar | '!' | '"' | '#' | '$' | '%' | '&' | ''' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | '<' | '=' | '>' | '?' | '@' | '[' | '\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~'
+a442 -> SpaceOrEmpty a443 | LogicalOp a444
+a444 -> SpaceOrEmpty a445 | Boolean Space
+Conditions -> SpaceOrEmpty a451 | SpaceOrEmpty a461 | Space a431 | Space a441 | OtherChar a452 | OtherChar a462
+a452 -> SpaceOrEmpty a453 | Boolean a454
+a454 -> SpaceOrEmpty a455 | OtherChar SpaceOrEmpty | '!' | '"' | '#' | '$' | '%' | '&' | ''' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | '<' | '=' | '>' | '?' | '@' | '[' | '\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~'
+a455 -> OtherChar SpaceOrEmpty | '!' | '"' | '#' | '$' | '%' | '&' | ''' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | '<' | '=' | '>' | '?' | '@' | '[' | '\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~'
+a462 -> SpaceOrEmpty a463 | Boolean a464
+a464 -> SpaceOrEmpty a465 | LogicalOp a466
+a466 -> SpaceOrEmpty a467 | Boolean a468
+a468 -> SpaceOrEmpty a469 | OtherChar SpaceOrEmpty | '!' | '"' | '#' | '$' | '%' | '&' | ''' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | '<' | '=' | '>' | '?' | '@' | '[' | '\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~'
+a469 -> OtherChar SpaceOrEmpty | '!' | '"' | '#' | '$' | '%' | '&' | ''' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | '<' | '=' | '>' | '?' | '@' | '[' | '\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~'
+a513 -> SpaceOrEmpty IdentifierName |  a161 | Letter IdentifierName2 | '_' | Letter 
+a5211 -> SpaceOrEmpty a5212 | OtherChar EOL
+a594 -> SpaceOrEmpty a595 | OtherChar EOL
+a338 -> Arguments a339 | SpaceOrEmpty a3310 | OtherChar a3311
+a377 -> Arguments OtherChar | '!' | '"' | '#' | '$' | '%' | '&' | ''' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | '<' | '=' | '>' | '?' | '@' | '[' | '\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~'
+a383 -> Arguments OtherChar | '!' | '"' | '#' | '$' | '%' | '&' | ''' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | '<' | '=' | '>' | '?' | '@' | '[' | '\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~'
+a498 -> ImportOptionalAs EOL | SpaceOrEmpty a81 | OtherChar a82
+a5015 -> ImportOptionalAs EOL | SpaceOrEmpty a81 | OtherChar a82
+S -> InProgram S | EOL S | Assignment | SpaceOrEmpty a81 |  a311 | FunctionHead FunctionContents | Letter a491 | Letter a501 | ForLoopHead LoopContents | WhileLoopHead LoopContents | WithHead WithContents | IdentifierName a371 | IdentifierName a381 | IfHead IfContents | IfHead a531 | IfHead a541 | Ternary0 EOL | OtherChar a741 | OtherChar a751 | OtherChar a761 | OtherChar a82
+InProgram -> Assignment |  a311 | FunctionHead FunctionContents | Letter a491 | Letter a501 | ForLoopHead LoopContents | WhileLoopHead LoopContents | WithHead WithContents | IdentifierName a371 | IdentifierName a381 | IfHead IfContents | IfHead a531 | IfHead a541 | Ternary0 EOL | OtherChar a741 | OtherChar a751 | OtherChar a761
+Letter -> 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 'X' | 'Y' | 'Z'
+Number -> '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+OtherChar -> '!' | '"' | '#' | '$' | '%' | '&' | ''' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | '<' | '=' | '>' | '?' | '@' | '[' | '\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~'
+AnyString -> AnyChar AnyString | '♀' | Space Space | 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 'X' | 'Y' | 'Z' | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '!' | '"' | '#' | '$' | '%' | '&' | ''' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | '<' | '=' | '>' | '?' | '@' | '[' | '\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~'
+Numbers -> Number Numbers | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+FloatNumbers -> Numbers a11
+a11 -> OtherChar Numbers
+Boolean -> Letter a21 | Letter a31 | IdentifierName a41 | IdentifierName a51 | Letter a61 | Letter a71 |  a161 | Letter IdentifierName2 | '_' | Letter  | IdentifierName a371 | IdentifierName a381
+a21 -> Letter a22
+a22 -> Letter Letter
+a31 -> Letter a32
+a32 -> Letter a33
+a33 -> Letter Letter
+a42 -> ComparisonOp a43
+a52 -> ComparisonOp a53
+a61 -> Letter a62
+a62 -> Letter a63
+a63 -> Space Boolean
+a71 -> Letter a72
+a72 -> Letter a73
+a74 -> OtherChar a75
+a75 -> Boolean OtherChar
+a81 -> OtherChar a82
+a82 -> Letter 
+ArithmeticOp -> '+' | '-' | '*' | '/' | '%' | ArithmeticOp ArithmeticOp | ArithmeticOp ArithmeticOp
+AssignmentOp -> '=' | ArithmeticOp AssignmentOp | ArithmeticOp AssignmentOp | ArithmeticOp AssignmentOp | ArithmeticOp AssignmentOp | ArithmeticOp a91 | ArithmeticOp a101 | BitwiseOp AssignmentOp | BitwiseOp AssignmentOp | BitwiseOp AssignmentOp | ComparisonOp a111 | ComparisonOp a121
+a91 -> ArithmeticOp AssignmentOp
+a101 -> ArithmeticOp AssignmentOp
+a111 -> ComparisonOp AssignmentOp
+a121 -> ComparisonOp AssignmentOp
+ComparisonOp -> AssignmentOp AssignmentOp | OtherChar AssignmentOp | '<' | '>' | ComparisonOp AssignmentOp | ComparisonOp AssignmentOp
+LogicalOp -> Letter a131 | Letter Letter
+a131 -> Letter Letter
+IdentityOp -> Letter Letter | Letter a141
+a141 -> Letter a142
+a142 -> ' a143
+a143 -> ' a144
+a144 -> Letter a145
+a145 -> Letter Letter
+MembershipOp -> Letter Letter | Letter a151
+a151 -> Letter a152
+a152 -> Letter a153
+a153 -> ' a154
+a154 -> ' a155
+a155 -> Letter Letter
+BitwiseOp -> '&' | '|' | '^' | '~' | ComparisonOp ComparisonOp | ComparisonOp ComparisonOp
+Space -> '♀' | Space Space
+IdentifierName ->  a161 | Letter IdentifierName2 | '_' | Letter 
+a161 -> IdentifierName2 IdentifierName2
+IdentifierName2 -> IdentifierName2 IdentifierName2 | Letter IdentifierName2 | Number IdentifierName2 | '_' | 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 'X' | 'Y' | 'Z' | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+Variable -> IdentifierName a171 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a172 -> OtherChar a173
+Value -> OtherChar a181 | OtherChar a191 | Letter a201 | Number Numbers | Numbers a11 | OtherChar a231 | OtherChar a241 | OtherChar a251 | OtherChar a261 | Letter a21 | Letter a31 | IdentifierName a41 | IdentifierName a51 | Letter a61 | Letter a71 | IdentifierName a371 | IdentifierName a381 | IdentifierName a171 | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' |  a161 | Letter IdentifierName2 | '_' | Letter  | IdentifierName a371 | IdentifierName a381 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a181 -> AnyString OtherChar
+a191 -> AnyString OtherChar
+a201 -> Letter a202
+a202 -> Letter Letter
+OpParValue -> OtherChar a211 | OtherChar a181 | OtherChar a191 | Letter a201 | Number Numbers | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | Numbers a11 | OtherChar a231 | OtherChar a241 | OtherChar a251 | OtherChar a261 | Letter a21 | Letter a31 | IdentifierName a41 | IdentifierName a51 | Letter a61 | Letter a71 |  a161 | Letter IdentifierName2 | '_' | Letter  | IdentifierName a371 | IdentifierName a381 | IdentifierName a371 | IdentifierName a381 | IdentifierName a171 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a211 -> OpParValue OtherChar
+OperatedValue -> OpParValue a221 | OtherChar a211 | OtherChar a181 | OtherChar a191 | Letter a201 | Number Numbers | Numbers a11 | OtherChar a231 | OtherChar a241 | OtherChar a251 | OtherChar a261 | Letter a21 | Letter a31 | IdentifierName a41 | IdentifierName a51 | Letter a61 | Letter a71 | IdentifierName a371 | IdentifierName a381 | IdentifierName a171 | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' |  a161 | Letter IdentifierName2 | '_' | Letter  | IdentifierName a371 | IdentifierName a381 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a222 -> Operator OperatedValue
+List -> OtherChar a231
+a231 -> Contents OtherChar
+Tuple -> OtherChar a241
+a241 -> Contents OtherChar
+Set -> OtherChar a251
+a251 -> Contents OtherChar
+Dictionary -> OtherChar a261
+a261 -> DictionaryContents OtherChar
+a271 -> OperatedValue a272
+a273 -> OtherChar a274
+a281 -> OperatedValue a282
+a283 -> OtherChar a284
+a285 -> OperatedValue a286
+a287 -> OtherChar DictionaryContents
+a301 -> OperatedValue a302
+a303 -> OtherChar Contents
+Class ->  a311
+a311 -> ClassHead ClassContents
+ClassHead -> Letter a321
+a321 -> Letter a322
+a322 -> Letter a323
+a323 -> Letter a324
+a324 -> Letter a325
+a325 -> Space a326
+a326 -> IdentifierName a327
+a328 -> OtherChar EOL
+ClassContents -> InProgram ClassContents | Assignment |  a311 | FunctionHead FunctionContents | Letter a491 | Letter a501 | ForLoopHead LoopContents | WhileLoopHead LoopContents | WithHead WithContents | IdentifierName a371 | IdentifierName a381 | IfHead IfContents | IfHead a531 | IfHead a541 | Ternary0 EOL | OtherChar a741 | OtherChar a751 | OtherChar a761
+Function -> FunctionHead FunctionContents
+FunctionHead -> Letter a331
+a331 -> Letter a332
+a332 -> Letter a333
+a333 -> Space a334
+a334 -> IdentifierName a335
+a336 -> OtherChar a337
+a3310 -> OtherChar a3311
+a3312 -> OtherChar EOL
+Arguments -> Argument a341 | IdentifierName a351 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a342 -> OtherChar a343
+Argument -> IdentifierName a351 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a352 -> AssignmentOp a353
+FunctionContents -> InFunction FunctionContents | Return FunctionContents | Assignment | IfInFunc | Letter a361 |  a311 | FunctionHead FunctionContents | Letter a491 | Letter a501 | ForLoopHead FuncLoopContents | WhileLoopHead FuncLoopContents | WithHead FunctionContents | IdentifierName a371 | IdentifierName a381 | Ternary0 EOL | OtherChar a741 | OtherChar a751 | OtherChar a761 | Letter a361
+InFunction -> Assignment | IfInFunc |  a311 | FunctionHead FunctionContents | Letter a491 | Letter a501 | ForLoopHead FuncLoopContents | WhileLoopHead FuncLoopContents | WithHead FunctionContents | IdentifierName a371 | IdentifierName a381 | Ternary0 EOL | OtherChar a741 | OtherChar a751 | OtherChar a761 | Letter a361
+Return -> Letter a361
+a361 -> Letter a362
+a362 -> Letter a363
+a363 -> Letter a364
+a364 -> Letter a365
+a365 -> Letter a366
+a366 -> Space OperatedValue
+FunctionCall -> IdentifierName a371 | IdentifierName a381
+a372 -> OtherChar a373
+a374 -> IdentifierName a375
+a376 -> OtherChar a377
+a382 -> OtherChar a383
+Loop -> ForLoopHead LoopContents | WhileLoopHead LoopContents
+ForLoop -> Letter a391
+a391 -> Letter a392
+a392 -> Letter a393
+a393 -> Space a394
+a394 -> IdentifierName a395
+a395 -> Space a396
+a396 -> Letter a397
+a397 -> Letter a398
+a398 -> Space a399
+a399 -> Iterator a3910
+Iterator -> OtherChar a401 | OtherChar a411 | OtherChar a231 | OtherChar a241 | OtherChar a251 | OtherChar a261 | IdentifierName a371 | IdentifierName a381 | IdentifierName a171 |  a161 | Letter IdentifierName2 | '_' | Letter 
+a401 -> AnyString OtherChar
+a411 -> AnyString OtherChar
+WhileLoop -> Letter a421
+a421 -> Letter a422
+a422 -> Letter a423
+a423 -> Letter a424
+a424 -> Letter a425
+a425 -> Conditions a426
+a426 -> OtherChar EOL
+a431 -> Boolean Space
+a441 -> Boolean a442
+a443 -> LogicalOp a444
+a445 -> Boolean Space
+a451 -> OtherChar a452
+a453 -> Boolean a454
+a461 -> OtherChar a462
+a463 -> Boolean a464
+a465 -> LogicalOp a466
+a467 -> Boolean a468
+LoopContents -> InLoop LoopContents | Assignment |  a311 | FunctionHead FunctionContents | Letter a491 | Letter a501 | ForLoopHead LoopContents | WhileLoopHead LoopContents | WithHead LoopContents | IdentifierName a371 | IdentifierName a381 | IfHead LoopContents | IfHead a601 | IfHead a611 | Ternary0 EOL | OtherChar a741 | OtherChar a751 | OtherChar a761 | Letter a471 | Letter a481
+InLoop -> Assignment |  a311 | FunctionHead FunctionContents | Letter a491 | Letter a501 | ForLoopHead LoopContents | WhileLoopHead LoopContents | WithHead LoopContents | IdentifierName a371 | IdentifierName a381 | IfHead LoopContents | IfHead a601 | IfHead a611 | Ternary0 EOL | OtherChar a741 | OtherChar a751 | OtherChar a761 | Letter a471 | Letter a481
+Break -> Letter a471
+a471 -> Letter a472
+a472 -> Letter a473
+a473 -> Letter a474
+a474 -> Letter EOL
+Continue -> Letter a481
+a481 -> Letter a482
+a482 -> Letter a483
+a483 -> Letter a484
+a484 -> Letter a485
+a485 -> Letter a486
+a486 -> Letter a487
+a487 -> Letter EOL
+LoopInFunc -> ForLoopHead FuncLoopContents | WhileLoopHead FuncLoopContents
+FuncLoopContents -> InFuncLoop FuncLoopContents | Assignment |  a311 | FunctionHead FunctionContents | Letter a491 | Letter a501 | ForLoopHead FuncLoopContents | WhileLoopHead FuncLoopContents | WithHead FuncLoopContents | IdentifierName a371 | IdentifierName a381 | IfHead FuncLoopContents | IfHead a681 | IfHead a691 | Ternary0 EOL | OtherChar a741 | OtherChar a751 | OtherChar a761 | Letter a361 | Letter a471 | Letter a481
+InFuncLoop -> Assignment |  a311 | FunctionHead FunctionContents | Letter a491 | Letter a501 | ForLoopHead FuncLoopContents | WhileLoopHead FuncLoopContents | WithHead FuncLoopContents | IdentifierName a371 | IdentifierName a381 | IfHead FuncLoopContents | IfHead a681 | IfHead a691 | Ternary0 EOL | OtherChar a741 | OtherChar a751 | OtherChar a761 | Letter a361 | Letter a471 | Letter a481
+Import -> Letter a491 | Letter a501
+a491 -> Letter a492
+a492 -> Letter a493
+a493 -> Letter a494
+a494 -> Letter a495
+a495 -> Letter a496
+a496 -> Space a497
+a497 -> IdentifierName a498
+a501 -> Letter a502
+a502 -> Letter a503
+a503 -> Letter a504
+a504 -> Space a505
+a505 -> IdentifierName a506
+a506 -> Space a507
+a507 -> Letter a508
+a508 -> Letter a509
+a509 -> Letter a5010
+a5010 -> Letter a5011
+a5011 -> Letter a5012
+a5012 -> Letter a5013
+a5013 -> Space a5014
+a5014 -> IdentifierName a5015
+ImportOptionalAs -> Space a511
+a511 -> Letter a512
+a512 -> Letter a513
+With -> WithHead WithContents
+WithHead -> Letter a521
+a521 -> Letter a522
+a522 -> Letter a523
+a523 -> Letter a524
+a524 -> Space a525
+a525 -> FunctionCall a526
+a526 -> Space a527
+a527 -> Letter a528
+a528 -> Letter a529
+a529 -> Space a5210
+a5210 -> IdentifierName a5211
+a5212 -> OtherChar EOL
+WithContents -> InProgram WithContents | Assignment |  a311 | FunctionHead FunctionContents | Letter a491 | Letter a501 | ForLoopHead LoopContents | WhileLoopHead LoopContents | WithHead WithContents | IdentifierName a371 | IdentifierName a381 | IfHead IfContents | IfHead a531 | IfHead a541 | Ternary0 EOL | OtherChar a741 | OtherChar a751 | OtherChar a761
+WithInLoop -> WithHead LoopContents
+WithInFunc -> WithHead FunctionContents
+WithInFuncLoop -> WithHead FuncLoopContents
+If -> IfHead IfContents | IfHead a531 | IfHead a541
+a531 -> IfContents Elif
+a541 -> IfContents Else
+Elif -> ElifHead IfContents | ElifHead a551 | ElifHead a561
+a551 -> IfContents Elif
+a561 -> IfContents Else
+Else -> ElseHead IfContents
+IfHead -> Letter a571
+a571 -> Letter a572
+a572 -> Conditions a573
+a573 -> OtherChar EOL
+ElifHead -> Letter a581
+a581 -> Letter a582
+a582 -> Letter a583
+a583 -> Letter a584
+a584 -> Conditions a585
+a585 -> OtherChar EOL
+ElseHead -> Letter a591
+a591 -> Letter a592
+a592 -> Letter a593
+a593 -> Letter a594
+a595 -> OtherChar EOL
+IfContents -> InProgram IfContents | Assignment |  a311 | FunctionHead FunctionContents | Letter a491 | Letter a501 | ForLoopHead LoopContents | WhileLoopHead LoopContents | WithHead WithContents | IdentifierName a371 | IdentifierName a381 | IfHead IfContents | IfHead a531 | IfHead a541 | Ternary0 EOL | OtherChar a741 | OtherChar a751 | OtherChar a761
+IfInLoop -> IfHead LoopContents | IfHead a601 | IfHead a611
+a601 -> LoopContents Elif
+a611 -> LoopContents Else
+ElifInLoop -> ElifHead LoopContents | ElifHead a621 | ElifHead a631
+a621 -> LoopContents Elif
+a631 -> LoopContents Else
+ElseInLoop -> ElseHead LoopContents
+IfInFunc -> IfHead FunctionContents | IfHead a641 | IfHead a651
+a641 -> FunctionContents Elif
+a651 -> FunctionContents Else
+ElifInFunc -> ElifHead FunctionContents | ElifHead a661 | ElifHead a671
+a661 -> FunctionContents Elif
+a671 -> FunctionContents Else
+ElseInFunc -> ElseHead FunctionContents
+IfInFuncLoop -> IfHead FuncLoopContents | IfHead a681 | IfHead a691
+a681 -> FuncLoopContents Elif
+a691 -> FuncLoopContents Else
+ElifInFuncLoop -> ElifHead FuncLoopContents | ElifHead a701 | ElifHead a711
+a701 -> FuncLoopContents Elif
+a711 -> FuncLoopContents Else
+ElseInFuncLoop -> ElseHead FuncLoopContents
+Ternary0 -> Statement a721 | Statement a731
+a721 -> Space a722
+a722 -> Letter a723
+a723 -> Letter a724
+a724 -> Conditions a725
+a725 -> Letter a726
+a726 -> Letter a727
+a727 -> Letter a728
+a728 -> Letter a729
+a729 -> Space Statement
+a731 -> Space a732
+a732 -> Letter a733
+a733 -> Letter a734
+a734 -> Conditions a735
+a735 -> Letter a736
+a736 -> Letter a737
+a737 -> Letter a738
+a738 -> Letter a739
+a739 -> Space Ternary0
+Ternary -> Ternary0 EOL
+SinglelineComment -> OtherChar a741
+a741 -> AnyString EOL
+MultilineComment -> OtherChar a751 | OtherChar a761
+a751 -> OtherChar a752
+a752 -> OtherChar a753
+a753 -> AnyString a754
+a754 -> OtherChar a755
+a755 -> OtherChar a756
+a756 -> OtherChar EOL
+a761 -> OtherChar a762
+a762 -> OtherChar a763
+a763 -> AnyString a764
+a764 -> OtherChar a765
+a765 -> OtherChar a766
+a766 -> OtherChar EOL
+S0 -> InProgram S | EOL S | Assignment |  a311 | FunctionHead FunctionContents | Letter a491 | Letter a501 | ForLoopHead LoopContents | WhileLoopHead LoopContents | WithHead WithContents | IdentifierName a371 | IdentifierName a381 | IfHead IfContents | IfHead a531 | IfHead a541 | Ternary0 EOL | OtherChar a741 | OtherChar a751 | OtherChar a761 | SpaceOrEmpty a81 | OtherChar a82
+AnyChar -> 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 'X' | 'Y' | 'Z' | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '!' | '"' | '#' | '$' | '%' | '&' | ''' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | '<' | '=' | '>' | '?' | '@' | '[' | '\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~' | '♀' | Space Space
+Operator -> '+' | '-' | '*' | '/' | '%' | ArithmeticOp ArithmeticOp | ArithmeticOp ArithmeticOp | AssignmentOp AssignmentOp | OtherChar AssignmentOp | '<' | '>' | ComparisonOp AssignmentOp | ComparisonOp AssignmentOp | Letter a131 | Letter Letter | Letter Letter | Letter a141 | Letter Letter | Letter a151 | '&' | '|' | '^' | '~' | ComparisonOp ComparisonOp | ComparisonOp ComparisonOp
+SpaceOrEmpty -> '♀' | Space Space

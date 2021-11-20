@@ -1,0 +1,121 @@
+S -> InProgram S | InProgram | EOL S | EOL
+
+InProgram -> Assignment | Class | Function | Import | Loop | With | FunctionCall | If | Ternary | SinglelineComment | MultilineComment
+
+Letter -> 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 'X' | 'Y' | 'Z'
+Number -> '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+OtherChar -> '!' | '"' | '#' | '$' | '%' | '&' | ''' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | '<' | '=' | '>' | '?' | '@' | '[' | '\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~'
+AnyChar -> Letter | Number | OtherChar | SpaceOrEmpty
+AnyString -> AnyChar AnyString | AnyChar
+Numbers -> Number | Number Numbers
+FloatNumbers -> Numbers '.' Numbers
+Boolean -> 'T' 'r' 'u' 'e' | 'F' 'a' 'l' 's' 'e' | IdentifierName | FunctionCall | IdentifierName SpaceOrEmpty ComparisonOp SpaceOrEmpty IdentifierName | IdentifierName SpaceOrEmpty ComparisonOp SpaceOrEmpty Value | 'n' 'o' 't' Space Boolean | 'n' 'o' 't' SpaceOrEmpty '(' Boolean ')'
+EOL -> SpaceOrEmpty '\' 'n' 
+
+ArithmeticOp -> '+' | '-' | '*' | '/' | '%' | '*' '*' | '/' '/'
+AssignmentOp -> '=' | '+' '=' | '-' '=' | '*' '=' | '%' '=' | '/' '/' '=' | '*' '*' '=' | '&' '=' | '|' '=' | '^' '=' | '>' '>' '=' | '<' '<' '='
+ComparisonOp -> '=' '=' | '!' '=' | '<' | '>' | '<' '=' | '>' '='
+LogicalOp -> 'a' 'n' 'd' | 'o' 'r'
+IdentityOp -> 'i' 's' | 'i' 's' ' ' 'n' 'o' 't'
+MembershipOp -> 'i' 'n' | 'n' 'o' 't' ' ' 'i' 'n'
+BitwiseOp -> '&' | '|' | '^' | '~' | '<' '<' | '>' '>'
+Operator -> ArithmeticOp | ComparisonOp | LogicalOp | IdentityOp | MembershipOp | BitwiseOp
+
+Space -> '♀' | '♀' Space
+SpaceOrEmpty -> Space | e
+
+IdentifierName ->  '_' IdentifierName2 | Letter IdentifierName2 | '_' | Letter 
+IdentifierName2 -> '_' IdentifierName2 | Letter IdentifierName2 | Number IdentifierName2 | '_' | Letter | Number
+
+Variable -> IdentifierName | IdentifierName SpaceOrEmpty '.' SpaceOrEmpty Variable
+
+Value -> Numbers | FloatNumbers | ''' AnyString ''' | '"' AnyString '"' | List | Tuple | Set | Dictionary | Boolean | 'N' 'o' 'n' 'e' | FunctionCall | Variable
+OpParValue -> Value | '(' OpParValue ')'
+OperatedValue -> OpParValue | OpParValue SpaceOrEmpty Operator OperatedValue
+List -> '[' Contents ']'
+Tuple -> '(' Contents ')'
+Set -> '{' Contents '}'
+Dictionary -> '{' DictionaryContents '}'
+
+DictionaryContents -> SpaceOrEmpty OperatedValue SpaceOrEmpty ':' SpaceOrEmpty OperatedValue SpaceOrEmpty | SpaceOrEmpty OperatedValue SpaceOrEmpty ':' SpaceOrEmpty OperatedValue SpaceOrEmpty ',' DictionaryContents | SpaceOrEmpty
+Contents -> SpaceOrEmpty OperatedValue SpaceOrEmpty | SpaceOrEmpty OperatedValue SpaceOrEmpty ',' Contents | SpaceOrEmpty
+
+
+Class ->  ClassHead ClassContents
+ClassHead -> 'c' 'l' 'a' 's' 's' Space IdentifierName SpaceOrEmpty ':' EOL
+ClassContents -> InProgram | InProgram ClassContents
+
+
+Function -> FunctionHead FunctionContents
+FunctionHead -> 'd' 'e' 'f' Space IdentifierName SpaceOrEmpty '(' SpaceOrEmpty Arguments SpaceOrEmpty ')' SpaceOrEmpty ':' EOL
+Arguments -> Argument SpaceOrEmpty ',' SpaceOrEmpty Arguments | Argument | e
+Argument -> IdentifierName | IdentifierName SpaceOrEmpty '=' SpaceOrEmpty OperatedValue
+FunctionContents -> InFunction | InFunction FunctionContents | Return | Return FunctionContents
+InFunction -> Assignment | Class | Function | Import | LoopInFunc | WithInFunc | FunctionCall | IfInFunc | Ternary | SinglelineComment | MultilineComment | Return
+Return -> 'r' 'e' 't' 'u' 'r' 'n' Space OperatedValue
+FunctionCall -> IdentifierName SpaceOrEmpty '.' SpaceOrEmpty IdentifierName SpaceOrEmpty '(' Arguments ')' | IdentifierName SpaceOrEmpty '(' Arguments ')'
+
+
+Loop -> ForLoopHead LoopContents | WhileLoopHead LoopContents
+ForLoop -> 'f' 'o' 'r' Space IdentifierName Space 'i' 'n' Space Iterator SpaceOrEmpty ':'
+Iterator -> List | Tuple | Set | Dictionary | ''' AnyString ''' | '"' AnyString '"' | FunctionCall | Variable
+WhileLoop -> 'w' 'h' 'i' 'l' 'e' Conditions ':' EOL
+Conditions -> Space Boolean Space | Space Boolean SpaceOrEmpty LogicalOp SpaceOrEmpty Boolean Space | SpaceOrEmpty '(' SpaceOrEmpty Boolean SpaceOrEmpty ')' SpaceOrEmpty | SpaceOrEmpty '(' SpaceOrEmpty Boolean SpaceOrEmpty LogicalOp SpaceOrEmpty Boolean SpaceOrEmpty ')' SpaceOrEmpty
+LoopContents -> InLoop | InLoop LoopContents
+InLoop -> Assignment | Class | Function | Import | Loop | WithInLoop | FunctionCall | IfInLoop | Ternary | SinglelineComment | MultilineComment | Break | Continue
+Break -> 'b' 'r' 'e' 'a' 'k' EOL
+Continue -> 'c' 'o' 'n' 't' 'i' 'n' 'u' 'e' EOL
+
+LoopInFunc -> ForLoopHead FuncLoopContents | WhileLoopHead FuncLoopContents
+FuncLoopContents -> InFuncLoop | InFuncLoop FuncLoopContents
+InFuncLoop -> Assignment | Class | Function | Import | LoopInFunc | WithInFuncLoop | FunctionCall | IfInFuncLoop | Ternary | SinglelineComment | MultilineComment | Return | Break | Continue
+
+
+Import -> 'i' 'm' 'p' 'o' 'r' 't' Space IdentifierName ImportOptionalAs EOL | 'f' 'r' 'o' 'm' Space IdentifierName Space 'i' 'm' 'p' 'o' 'r' 't' Space IdentifierName ImportOptionalAs EOL
+ImportOptionalAs -> e | Space 'a' 's' SpaceOrEmpty IdentifierName
+
+With -> WithHead WithContents
+WithHead -> 'w' 'i' 't' 'h' Space FunctionCall Space 'a' 's' Space IdentifierName SpaceOrEmpty ':' EOL
+WithContents -> InProgram | InProgram WithContents
+
+WithInLoop -> WithHead LoopContents
+WithInFunc -> WithHead FunctionContents
+WithInFuncLoop -> WithHead FuncLoopContents
+
+
+If -> IfHead IfContents | IfHead IfContents Elif | IfHead IfContents Else
+Elif -> ElifHead IfContents | ElifHead IfContents Elif | ElifHead IfContents Else
+Else -> ElseHead IfContents
+
+IfHead -> 'i' 'f' Conditions ':' EOL
+ElifHead -> 'e' 'l' 'i' 'f' Conditions ':' EOL
+ElseHead -> 'e' 'l' 's' 'e' SpaceOrEmpty ':' EOL
+
+IfContents -> InProgram | InProgram IfContents
+
+IfInLoop -> IfHead LoopContents | IfHead LoopContents Elif | IfHead LoopContents Else
+ElifInLoop -> ElifHead LoopContents | ElifHead LoopContents Elif | ElifHead LoopContents Else
+ElseInLoop -> ElseHead LoopContents
+
+IfInFunc -> IfHead FunctionContents | IfHead FunctionContents Elif | IfHead FunctionContents Else
+ElifInFunc -> ElifHead FunctionContents | ElifHead FunctionContents Elif | ElifHead FunctionContents Else
+ElseInFunc -> ElseHead FunctionContents
+
+IfInFuncLoop -> IfHead FuncLoopContents | IfHead FuncLoopContents Elif | IfHead FuncLoopContents Else
+ElifInFuncLoop -> ElifHead FuncLoopContents | ElifHead FuncLoopContents Elif | ElifHead FuncLoopContents Else
+ElseInFuncLoop -> ElseHead FuncLoopContents
+
+Ternary0 -> Statement Space 'i' 'f' Conditions 'e' 'l' 's' 'e' Space Statement | Statement Space 'i' 'f' Conditions 'e' 'l' 's' 'e' Space Ternary0
+Ternary -> Ternary0 EOL
+
+
+SinglelineComment -> '#' AnyString EOL
+MultilineComment -> ''' ''' ''' AnyString ''' ''' ''' EOL | '"' '"' '"' AnyString '"' '"' '"' EOL
+
+
+
+
+
+
+
+
