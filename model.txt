@@ -4,7 +4,7 @@ Variables:
 S InProgram Letter Number OtherChar AnyChar AnyString Numbers FloatNumbers Boolean EOL ArithmeticOp AssignmentOp ComparisonOp LogicalOp IdentityOp MembershipOp BitwiseOp Operator Space SpaceOrEmpty IdentifierName IdentifierName2 Variable Value OpParValue OperatedValue List Tuple Set Dictionary DictionaryContents Contents Class ClassHead ClassContents Function FunctionHead Arguments Argument FunctionContents InFunction Return FunctionCall Loop ForLoop Iterator WhileLoop Conditions LoopContents InLoop Break Continue LoopInFunc FuncLoopContents InFuncLoop Import ImportOptionalAs With WithHead WithContents WithInLoop WithInFunc WithInFuncLoop If Elif Else IfHead ElifHead ElseHead IfContents IfInLoop ElifInLoop ElseInLoop IfInFuncLoop ElifInFuncLoop ElseInFuncLoop Ternary0 Ternary SinglelineComment MultilineComment
 Productions:
 S -> InProgram S | InProgram | EOL S | EOL;
-InProgram -> Assignment | Class | Function | Import | Loop | With | FunctionCall | If | Ternary | SinglelineComment | MultilineComment;
+InProgram -> Statement | Class | Function | Import | Loop | With | If | Ternary | SinglelineComment | MultilineComment;
 Letter -> 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 'X' | 'Y' | 'Z';
 Number -> '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
 OtherChar -> '!' | '"' | '#' | '$' | '%' | '&' | ''' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | '<' | '=' | '>' | '?' | '@' | '[' | '\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~';
@@ -46,7 +46,7 @@ FunctionHead -> 'd' 'e' 'f' Space IdentifierName SpaceOrEmpty '(' SpaceOrEmpty A
 Arguments -> Argument SpaceOrEmpty ',' SpaceOrEmpty Arguments | Argument | e;
 Argument -> IdentifierName | IdentifierName SpaceOrEmpty '=' SpaceOrEmpty OperatedValue;
 FunctionContents -> InFunction | InFunction FunctionContents | Return | Return FunctionContents;
-InFunction -> Assignment | Class | Function | Import | LoopInFunc | WithInFunc | FunctionCall | IfInFunc | Ternary | SinglelineComment | MultilineComment | Return;
+InFunction -> Statement | Class | Function | Import | LoopInFunc | WithInFunc | IfInFunc | Ternary | SinglelineComment | MultilineComment | Return;
 Return -> 'r' 'e' 't' 'u' 'r' 'n' Space OperatedValue;
 FunctionCall -> IdentifierName SpaceOrEmpty '.' SpaceOrEmpty IdentifierName SpaceOrEmpty '(' Arguments ')' | IdentifierName SpaceOrEmpty '(' Arguments ')';
 Loop -> ForLoopHead LoopContents | WhileLoopHead LoopContents;
@@ -55,12 +55,12 @@ Iterator -> List | Tuple | Set | Dictionary | ''' AnyString ''' | '"' AnyString 
 WhileLoop -> 'w' 'h' 'i' 'l' 'e' Conditions ':' EOL;
 Conditions -> Space Boolean Space | Space Boolean SpaceOrEmpty LogicalOp SpaceOrEmpty Boolean Space | SpaceOrEmpty '(' SpaceOrEmpty Boolean SpaceOrEmpty ')' SpaceOrEmpty | SpaceOrEmpty '(' SpaceOrEmpty Boolean SpaceOrEmpty LogicalOp SpaceOrEmpty Boolean SpaceOrEmpty ')' SpaceOrEmpty;
 LoopContents -> InLoop | InLoop LoopContents;
-InLoop -> Assignment | Class | Function | Import | Loop | WithInLoop | FunctionCall | IfInLoop | Ternary | SinglelineComment | MultilineComment | Break | Continue;
+InLoop -> Statement | Class | Function | Import | Loop | WithInLoop | IfInLoop | Ternary | SinglelineComment | MultilineComment | Break | Continue;
 Break -> 'b' 'r' 'e' 'a' 'k' EOL;
 Continue -> 'c' 'o' 'n' 't' 'i' 'n' 'u' 'e' EOL;
 LoopInFunc -> ForLoopHead FuncLoopContents | WhileLoopHead FuncLoopContents;
 FuncLoopContents -> InFuncLoop | InFuncLoop FuncLoopContents;
-InFuncLoop -> Assignment | Class | Function | Import | LoopInFunc | WithInFuncLoop | FunctionCall | IfInFuncLoop | Ternary | SinglelineComment | MultilineComment | Return | Break | Continue;
+InFuncLoop -> Statement | Class | Function | Import | LoopInFunc | WithInFuncLoop | IfInFuncLoop | Ternary | SinglelineComment | MultilineComment | Return | Break | Continue;
 Import -> 'i' 'm' 'p' 'o' 'r' 't' Space IdentifierName ImportOptionalAs EOL | 'f' 'r' 'o' 'm' Space IdentifierName Space 'i' 'm' 'p' 'o' 'r' 't' Space IdentifierName ImportOptionalAs EOL;
 ImportOptionalAs -> e | Space 'a' 's' SpaceOrEmpty IdentifierName;
 With -> WithHead WithContents;
