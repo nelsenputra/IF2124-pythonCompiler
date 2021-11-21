@@ -1,0 +1,7 @@
+a b c
+Variables:
+S A X
+Productions:
+S -> a X b;
+X -> a Y | b Y | e;
+Y -> X | c
