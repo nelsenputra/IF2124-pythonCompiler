@@ -17,11 +17,11 @@
 
 
 ## General Information
-Python adalah bahasa interpreter tingkat tinggi (high-level), dan juga general-purpose. Python diciptakan oleh Guido van Rossum dan dirilis pertama kali pada tahun 1991. Filosofi desain pemrograman Python mengutamakan code readability dengan penggunaan whitespace-nya. Python adalah bahasa multiparadigma karena mengimplementasi paradigma fungsional, imperatif, berorientasi objek, dan reflektif.
+Python is a high-level, as well as general-purpose interpreting language. Python was created by Guido van Rossum and was first released in 1991. The Python programming design philosophy prioritizes code readability with the use of whitespace. Python is a multiparadigm language because it implements functional, imperative, object-oriented, and reflective paradigms.
 
-Dalam proses pembuatan program dari sebuah bahasa menjadi instruksi yang dapat dieksekusi oleh mesin, terdapat pemeriksaan sintaks atau kompilasi bahasa yang dibuat oleh programmer. Kompilasi ini bertujuan untuk memastikan instruksi yang dibuat oleh programmer mengikuti aturan yang sudah ditentukan oleh bahasa tersebut. Baik bahasa berjenis interpreter maupun compiler, keduanya pasti melakukan pemeriksaan sintaks. Perbedaannya terletak pada apa yang dilakukan setelah proses pemeriksaan (kompilasi/compile) tersebut selesai dilakukan.
+In the process of making a program from a language into instructions that can be executed by a machine, there is a syntax check or a compilation of the language created by the programmer. This compilation aims to ensure that the instructions made by the programmer follow the rules that have been determined by the language. Both interpreter and compiler-type languages must perform syntax checks. The difference lies in what is done after the inspection process (compile) is completed.
 
-Dibutuhkan grammar bahasa dan algoritma parser untuk melakukan kompilasi. Sudah sangat banyak grammar dan algoritma yang dikembangkan untuk menghasilkan compiler dengan performa yang tinggi. Compiler bahasa Python yang dibuat pada repository ini menggunakan konsep CFG yang digunakan untuk mengevaluasi syntax program serta FA untuk mengatur penamaan variabel. Dalam implementasinya, kami menggunakan algoritma CYK yang mengharuskan kami untuk melakukan konversi grammar CFG ke dalam grammar CNF terlebih dahulu agar grammar dapat dipakai sebagai masukan pada algoritma CYK.
+It needs grammar and parser algorithm to compile. Many grammars and algorithms have been developed to produce high-performance compilers. The Python compiler built in this repository uses the concept of CFG which is used to evaluate program syntax and FA to manage the variable naming. In its implementation, we use the CYK algorithm which requires us to convert the CFG grammar into CNF grammar firsthand so that the grammar can be used as an input to the CYK algorithm.
 
 
 ## Technologies Used
