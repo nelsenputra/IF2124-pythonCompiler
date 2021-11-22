@@ -332,7 +332,6 @@ a778 -> Letter a779
 a779 -> Space Ternary0
 Ternary -> Ternary0 EOL
 Statement -> StatementNoEOL EOL
-StatementNoEOL -> Assignment | FunctionCall
 SinglelineComment -> OtherChar a781
 a781 -> AnyString EOL
 MultilineComment -> OtherChar a791 | OtherChar a801
@@ -354,3 +353,4 @@ AnyChar -> 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l'
 SpaceOrEmpty -> '♀' | Space Space
 InLoop -> StatementNoEOL EOL |  a351 | FunctionHead FunctionContents | Letter a531 | Letter a541 | ForLoopHead LoopContents | WhileLoopHead LoopContents | WithHead LoopContents | IfHead LoopContents | IfHead a641 | IfHead a651 | Ternary0 EOL | OtherChar a781 | OtherChar a791 | OtherChar a801 | Letter a511 | Letter a521
 InFuncLoop -> StatementNoEOL EOL |  a351 | FunctionHead FunctionContents | Letter a531 | Letter a541 | ForLoopHead FuncLoopContents | WhileLoopHead FuncLoopContents | WithHead FuncLoopContents | IfHead FuncLoopContents | IfHead a721 | IfHead a731 | Ternary0 EOL | OtherChar a781 | OtherChar a791 | OtherChar a801 | Letter a401 | Letter a511 | Letter a521
+StatementNoEOL -> MultivarRight a211 | IdentifierName a411 | IdentifierName a421
