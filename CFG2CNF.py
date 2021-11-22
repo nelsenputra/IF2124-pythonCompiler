@@ -44,11 +44,7 @@ variablesJar = ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'a10', 'a1
 'a1894', 'a1895', 'a1896', 'a1897', 'a1898', 'a1899', 'a1900', 'a1901', 'a1902', 'a1903', 'a1904', 'a1905', 'a1906', 'a1907', 'a1908', 'a1909', 'a1910', 'a1911', 'a1912', 'a1913', 'a1914', 'a1915', 'a1916', 'a1917', 'a1918', 'a1919', 'a1920', 'a1921', 'a1922', 'a1923', 
 'a1924', 'a1925', 'a1926', 'a1927', 'a1928', 'a1929', 'a1930', 'a1931', 'a1932', 'a1933', 'a1934', 'a1935', 'a1936', 'a1937', 'a1938', 'a1939', 'a1940', 'a1941', 'a1942', 'a1943', 'a1944', 'a1945', 'a1946', 'a1947', 'a1948', 'a1949', 'a1950', 'a1951', 'a1952', 'a1953', 
 'a1954', 'a1955', 'a1956', 'a1957', 'a1958', 'a1959', 'a1960', 'a1961', 'a1962', 'a1963', 'a1964', 'a1965', 'a1966', 'a1967', 'a1968', 'a1969', 'a1970', 'a1971', 'a1972', 'a1973', 'a1974', 'a1975', 'a1976', 'a1977', 'a1978', 'a1979', 'a1980', 'a1981', 'a1982', 'a1983', 
-'a1984', 'a1985', 'a1986', 'a1987', 'a1988', 'a1989', 'a1990', 'a1991', 'a1992', 'a1993', 'a1994', 'a1995', 'a1996', 'a1997', 'a1998', 'a1999', 'S', 'InProgram', 'Letter', 'Number', 'OtherChar', 'AnyChar', 'AnyString', 'Numbers', 'FloatNumbers', 'Boolean', 'EOL', 
-'ArithmeticOp', 'AssignmentOp', 'ComparisonOp', 'LogicalOp', 'IdentityOp', 'MembershipOp', 'BitwiseOp', 'Operator', 'Space', 'SpaceOrEmpty', 'IdentifierName', 'IdentifierName2', 'Variable', 'MultivarRight', 'Assignment', 'Value', 'OpParValue', 'OperatedValue', 'List', 
-'Tuple', 'Set', 'Dictionary', 'DictionaryContents', 'Contents', 'Class', 'ClassHead', 'ClassContents', 'Function', 'FunctionHead', 'Arguments', 'Argument', 'FunctionContents', 'InFunction', 'Return', 'FunctionCall', 'Loop', 'ForLoopHead', 'Iterator', 'WhileLoopHead', 
-'Conditions', 'LoopContents', 'InLoop', 'Break', 'Continue', 'LoopInFunc', 'FuncLoopContents', 'InFuncLoop', 'Import', 'ImportOptionalAs', 'With', 'WithHead', 'WithContents', 'WithInLoop', 'WithInFunc', 'WithInFuncLoop', 'If', 'Elif', 'Else', 'IfHead', 'ElifHead', 
-'ElseHead', 'IfContents', 'IfInLoop', 'ElifInLoop', 'ElseInLoop', 'IfInFuncLoop', 'ElifInFuncLoop', 'ElseInFuncLoop', 'Ternary0', 'Ternary', 'Statement', 'StatementNoEOL', 'SinglelineComment', 'MultilineComment']
+'a1984', 'a1985', 'a1986', 'a1987', 'a1988', 'a1989', 'a1990', 'a1991', 'a1992', 'a1993', 'a1994', 'a1995', 'a1996', 'a1997', 'a1998', 'a1999']
 
 
 def isUnitary(rule, variables):
@@ -74,7 +70,6 @@ def START(productions, variables):
 def TERM(productions, variables):
 	newProductions = []
 	#create a dictionari for all base production, like A->a, in the form dic['a'] = 'A'
-	dictionary = helper.setupDict(productions, variables, terms=K)
 	for production in productions:
 		#check if the production is simple
 		if isSimple(production):
@@ -83,16 +78,15 @@ def TERM(productions, variables):
 		else:
 			for term in K:
 				for index, value in enumerate(production[right]):
-					if term == value and not term in dictionary:
+					if term == value:
 						#it's created a new production vaiable->term and added to it 
-						dictionary[term] = variablesJar.pop()
+						var = variablesJar.pop(0)
+
 						#Variables set it's updated adding new variable
-						V.append(dictionary[term])
-						newProductions.append( (dictionary[term], [term]) )
+						V.append(var)
+						newProductions.append( (var, [term]) )
 						
-						production[right][index] = dictionary[term]
-					elif term == value:
-						production[right][index] = dictionary[term]
+						production[right][index] = var
 			newProductions.append( (production[left], production[right]) )
 			
 	#merge created set and the introduced rules
@@ -111,7 +105,6 @@ def BIN(productions, variables):
 			variables.append(newVar+'1')
 			result.append( (production[left], [production[right][0]]+[newVar+'1']) )
 			i = 1
-#TODO
 			for i in range(1, k-2 ):
 				var, var2 = newVar+str(i), newVar+str(i+1)
 				variables.append(var2)
