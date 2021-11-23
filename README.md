@@ -3,6 +3,7 @@
 
 
 ## Table of Contents
+* [Introduction](#introduction)
 * [General Information](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
@@ -13,7 +14,16 @@
 * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
-<!-- * [License](#license) -->
+
+
+## Introduction
+Hello, everyone! Welcome to our Github Repository!
+This project was created by the team you can see on the following table.
+| No. | Name | Student ID |
+| :---: | :---: | :---: |
+| 1. | Johannes Winson Sukiatmodjo | 13520123 |
+| 2. | Ignasius Ferry Priguna | 13520126 | 
+| 3. | Nelsen Putra | 13520130 |
 
 
 ## General Information
