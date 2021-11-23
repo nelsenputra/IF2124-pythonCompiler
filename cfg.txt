@@ -1,14 +1,14 @@
 Terminals:
-'0' '1' '2' '3' '4' '5' '6' '7' '8' '9' 'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w' 'x' 'y' 'z' 'A' 'B' 'C' 'D' 'E' 'F' 'G' 'H' 'I' 'J' 'K' 'L' 'M' 'N' 'O' 'P' 'Q' 'R' 'S' 'T' 'U' 'V' 'W' 'X' 'Y' 'Z' '!' '"' '#' '$' '%' '&' ''' '(' ')' '*' '+' ',' '-' '.' '/' ':' '<' '=' '>' '?' '@' '[' '\' ']' '^' '_' '`' '{' '|' '}' '~' 'space' 'newline'
+'0' '1' '2' '3' '4' '5' '6' '7' '8' '9' 'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w' 'x' 'y' 'z' 'A' 'B' 'C' 'D' 'E' 'F' 'G' 'H' 'I' 'J' 'K' 'L' 'M' 'N' 'O' 'P' 'Q' 'R' 'S' 'T' 'U' 'V' 'W' 'X' 'Y' 'Z' '!' '"' '#' '$' '%' '&' ''' '(' ')' '*' '+' ',' '-' '.' '/' ':' '<' '=' '>' '?' '@' '[' '\' ']' '^' '_' '`' '{' '|' '}' '~' 'space' 'newline' IdentifierName
 Variables:
-S InProgram Letter Number OtherChar AnyChar AnyString MutlilineAnyString Numbers FloatNumbers Boolean EOL ArithmeticOp AssignmentOp ComparisonOp LogicalOp IdentityOp MembershipOp BitwiseOp Operator Space SpaceOrEmpty IdentifierName IdentifierName2 Variable MultivarRight Assignment Value OpParValue OperatedValue List Tuple Set Dictionary DictionaryContents Contents Class ClassHead ClassContents Function FunctionHead Arguments Argument FunctionContents InFunction Return FunctionCall Parameter Parameters Loop ForLoopHead Iterator WhileLoopHead Conditions LoopContents InLoop Break Continue LoopInFunc FuncLoopContents InFuncLoop Import ImportOptionalAs With WithHead WithContents WithInLoop WithInFunc WithInFuncLoop If Elif Else IfHead ElifHead ElseHead IfContents IfInLoop ElifInLoop ElseInLoop IfInFunc ElifInFunc ElseInFunc IfInFuncLoop ElifInFuncLoop ElseInFuncLoop Ternary0 Ternary Statement StatementNoEOL SinglelineComment MultilineComment Pass Raise
+S InProgram Letter Number OtherChar AnyChar AnyString MutlilineAnyString Numbers FloatNumbers Boolean EOL ArithmeticOp AssignmentOp ComparisonOp LogicalOp IdentityOp MembershipOp BitwiseOp Operator Space SpaceOrEmpty Variable MultivarLeft Assignment Value ValueNoTernary OpParValue OperatedValue List Tuple Set Dictionary DictionaryContents Contents Class ClassHead ClassContents Function FunctionHead Arguments Argument FunctionContents InFunction Return FunctionCall Parameter Parameters Loop ForLoopHead Iterator WhileLoopHead Conditions LoopContents InLoop Break Continue LoopInFunc FuncLoopContents InFuncLoop Import ImportOptionalAs With WithHead WithContents WithInLoop WithInFunc WithInFuncLoop If Elif Else IfHead ElifHead ElseHead IfContents IfInLoop ElifInLoop ElseInLoop IfInFunc ElifInFunc ElseInFunc IfInFuncLoop ElifInFuncLoop ElseInFuncLoop Ternary0 Ternary1 Ternary TernaryLeft Statement StatementNoEOL SinglelineComment MultilineComment Pass Raise
 Productions:
 S -> InProgram S | InProgram | EOL S | EOL;
 InProgram -> Statement | Class | Function | Import | Loop | With | If | Ternary | SinglelineComment | MultilineComment;
 Letter -> 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 'X' | 'Y' | 'Z';
 Number -> '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
 OtherChar -> '!' | '"' | '#' | '$' | '%' | '&' | ''' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | '<' | '=' | '>' | '?' | '@' | '[' | '\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~' | 'space';
-AnyChar -> Letter | Number | OtherChar | SpaceOrEmpty;
+AnyChar -> Letter | Number | OtherChar;
 AnyString -> AnyChar AnyString | AnyChar;
 MutlilineAnyString -> AnyChar MutlilineAnyString | AnyChar | EOL MutlilineAnyString | EOL;
 Numbers -> Number | Number Numbers;
@@ -25,12 +25,11 @@ BitwiseOp -> '&' | '|' | '^' | '~' | '<' '<' | '>' '>';
 Operator -> ArithmeticOp | ComparisonOp | Space LogicalOp Space | IdentityOp | Space MembershipOp Space | BitwiseOp;
 Space -> 'space' | 'space' Space;
 SpaceOrEmpty -> Space | e;
-IdentifierName ->  '_' IdentifierName2 | Letter IdentifierName2 | '_' | Letter;
-IdentifierName2 -> '_' IdentifierName2 | Letter IdentifierName2 | Number IdentifierName2 | '_' | Letter | Number;
 Variable -> IdentifierName | IdentifierName SpaceOrEmpty '.' SpaceOrEmpty Variable;
-MultivarRight -> Variable | Variable SpaceOrEmpty ',' SpaceOrEmpty MultivarRight;
-Assignment -> MultivarRight SpaceOrEmpty AssignmentOp SpaceOrEmpty OperatedValue;
-Value -> Numbers | FloatNumbers | ''' AnyString ''' | '"' AnyString '"' | List | Tuple | Set | Dictionary | Boolean | 'N' 'o' 'n' 'e' | FunctionCall | Variable;
+MultivarLeft -> Variable | Variable SpaceOrEmpty ',' SpaceOrEmpty MultivarLeft;
+Assignment -> MultivarLeft SpaceOrEmpty AssignmentOp SpaceOrEmpty OperatedValue;
+Value -> Numbers | FloatNumbers | ''' AnyString ''' | '"' AnyString '"' | ''' ''' | '"' '"' | List | Tuple | Set | Dictionary | Boolean | 'N' 'o' 'n' 'e' | FunctionCall | Variable | Ternary1 | Value SpaceOrEmpty '[' SpaceOrEmpty Value SpaceOrEmpty']' SpaceOrEmpty;
+ValueNoTernary -> Numbers | FloatNumbers | ''' AnyString ''' | '"' AnyString '"' | ''' ''' | '"' '"' | List | Tuple | Set | Dictionary | Boolean | 'N' 'o' 'n' 'e' | FunctionCall | Variable;
 OpParValue -> Value | '(' OpParValue ')';
 OperatedValue -> OpParValue | OpParValue SpaceOrEmpty Operator SpaceOrEmpty OperatedValue;
 List -> '[' Contents ']' | '[' SpaceOrEmpty ']';
@@ -54,7 +53,7 @@ Parameters -> Parameter SpaceOrEmpty ',' SpaceOrEmpty Parameters | Parameter | e
 Parameter -> Argument | OperatedValue;
 Loop -> ForLoopHead LoopContents | WhileLoopHead LoopContents;
 ForLoopHead -> 'f' 'o' 'r' Space IdentifierName Space 'i' 'n' Space Iterator SpaceOrEmpty ':' EOL;
-Iterator -> List | Tuple | Set | Dictionary | ''' AnyString ''' | '"' AnyString '"' | FunctionCall | Variable;
+Iterator -> List | Tuple | Set | Dictionary | ''' AnyString ''' | '"' AnyString '"' | ''' ''' | '"' '"' | FunctionCall | Variable;
 WhileLoopHead -> 'w' 'h' 'i' 'l' 'e' Conditions ':' EOL;
 Conditions -> Space Boolean SpaceOrEmpty | Space Boolean SpaceOrEmpty LogicalOp SpaceOrEmpty Boolean SpaceOrEmpty | SpaceOrEmpty '(' SpaceOrEmpty Boolean SpaceOrEmpty ')' SpaceOrEmpty | SpaceOrEmpty '(' SpaceOrEmpty Boolean SpaceOrEmpty LogicalOp SpaceOrEmpty Boolean SpaceOrEmpty ')' SpaceOrEmpty;
 LoopContents -> InLoop | InLoop LoopContents;
@@ -88,11 +87,13 @@ ElseInFunc -> ElseHead FunctionContents;
 IfInFuncLoop -> IfHead FuncLoopContents | IfHead FuncLoopContents ElifInFuncLoop | IfHead FuncLoopContents ElseInFuncLoop;
 ElifInFuncLoop -> ElifHead FuncLoopContents | ElifHead FuncLoopContents ElifInFuncLoop | ElifHead FuncLoopContents ElseInFuncLoop;
 ElseInFuncLoop -> ElseHead FuncLoopContents;
-Ternary0 -> StatementNoEOL Space 'i' 'f' Conditions 'e' 'l' 's' 'e' Space StatementNoEOL | StatementNoEOL Space 'i' 'f' Conditions 'e' 'l' 's' 'e' Space Ternary0;
-Ternary -> Ternary0 EOL;
+Ternary0 -> ValueNoTernary | ValueNoTernary Space 'i' 'f' Conditions 'e' 'l' 's' 'e' Space Ternary0;
+Ternary1 -> TernaryLeft Space 'i' 'f' Conditions 'e' 'l' 's' 'e' Space Ternary0;
+Ternary -> Ternary1 EOL;
+TernaryLeft -> Assignment | Raise | ValueNoTernary;
 Statement -> StatementNoEOL EOL;
 StatementNoEOL -> Assignment | FunctionCall | Pass | Raise;
-SinglelineComment -> '#' AnyString EOL;
-MultilineComment -> ''' ''' ''' MutlilineAnyString ''' ''' ''' EOL | '"' '"' '"' MutlilineAnyString '"' '"' '"' EOL;
+SinglelineComment -> '#' AnyString EOL | '#' EOL;
+MultilineComment -> ''' ''' ''' MutlilineAnyString ''' ''' ''' EOL | '"' '"' '"' MutlilineAnyString '"' '"' '"' EOL | ''' ''' ''' ''' ''' ''' EOL | '"' '"' '" '"' '"' '"' EOL;
 Pass -> 'p' 'a' 's' 's';
 Raise -> 'r' 'a' 'i' 's' 'e' Space FunctionCall
