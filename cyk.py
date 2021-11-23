@@ -167,11 +167,7 @@ if __name__ == '__main__':
     table = checkForIdentifierNames(v_rules, input_string, table)
     table = process_cyk_table(v_rules, t_rules, input_string, table)
 
-    if len(input_string) > 0:
-        if 'S0' in table[len(input_string)-1][0]:
-            print("Accepted!")
-        else:
-            print("Syntax Error!")
+    if 'S0' in table[len(input_string)-1][0]:
+        print("Accepted!")
     else:
-        print("File kosong!")
-
+        print("Syntax Error!")
