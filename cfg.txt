@@ -63,7 +63,7 @@ Continue -> 'c' 'o' 'n' 't' 'i' 'n' 'u' 'e' EOL;
 LoopInFunc -> ForLoopHead FuncLoopContents | WhileLoopHead FuncLoopContents;
 FuncLoopContents -> InFuncLoop | InFuncLoop FuncLoopContents;
 InFuncLoop -> Statement | Class | Function | Import | LoopInFunc | WithInFuncLoop | IfInFuncLoop | Ternary | SinglelineComment | MultilineComment | Return | Break | Continue;
-Import -> 'i' 'm' 'p' 'o' 'r' 't' Space IdentifierName ImportOptionalAs EOL | 'f' 'r' 'o' 'm' Space IdentifierName Space 'i' 'm' 'p' 'o' 'r' 't' Space IdentifierName ImportOptionalAs EOL;
+Import -> 'i' 'm' 'p' 'o' 'r' 't' Space IdentifierName ImportOptionalAs EOL | 'f' 'r' 'o' 'm' Space IdentifierName Space 'i' 'm' 'p' 'o' 'r' 't' Space IdentifierName ImportOptionalAs EOL | 'f' 'r' 'o' 'm' Space IdentifierName Space 'i' 'm' 'p' 'o' 'r' 't' Space '*' EOL;
 ImportOptionalAs -> e | Space 'a' 's' Space IdentifierName;
 With -> WithHead WithContents;
 WithHead -> 'w' 'i' 't' 'h' Space OperatedValue Space 'a' 's' Space IdentifierName SpaceOrEmpty ':' EOL;
