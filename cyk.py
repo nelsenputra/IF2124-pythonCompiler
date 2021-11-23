@@ -3,9 +3,9 @@ import os
 # Read grammar
 def read_cnf():
     """ 
-    Membaca file cnf.txt di folder yang sama dan mengubah jadi list v_rules dan t_rules
-    v_rules adalah list rule yang menghasilkan non-terminal symbol
-    t_rules adalah list rule yang menghasilkan terminal symbol 
+    Membaca file cnf.txt di folder yang sama dan mengubah jadi list v_rules dan t_rules.
+    v_rules adalah list rule yang menghasilkan non-terminal symbol.
+    t_rules adalah list rule yang menghasilkan terminal symbol.
     """
 
     filename = os.path.join(os.curdir, "./cnf.txt")
@@ -48,7 +48,7 @@ def read_cnf():
 # Read input
 def read_input(filename):
     """
-    Membaca file input.py di folder yang sama dan mengubahnya menjadi sebuah string
+    Membaca file input.py di folder yang sama dan mengubahnya menjadi sebuah string.
     """
 
     filename = os.path.join(os.curdir, ("./test/" + filename))
@@ -63,18 +63,10 @@ def read_input(filename):
     return input_string
 
 
-def make_pairs(set_a, set_b):
-    pairs_list = []
-    for a in set_a:
-        for b in set_b:
-            pairs_list.append([a,b])
-
-    return pairs_list
-
 # FA
 def is_possible_variable(input_string):
     """
-    Finite Automata untuk menentukan apakah suatu frase merupakan variabel yang valid namanya
+    Finite Automata untuk menentukan apakah suatu frase merupakan variabel yang valid namanya.
     """
     keywords = ['False', 'class', 'is', 'return', 'None', 'continue', 'for', 'True', 'def', 'from', 'while', 'and', 'not', 'with', 'as', 'elif', 'if', 'or', 'else', 'import', 'pass', 'break', 'in', 'raise']
     Alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -107,7 +99,10 @@ def is_possible_variable(input_string):
 
 
 def checkForIdentifierNames(v_rules, input_string, table):
-
+    """
+    Mengecek setiap kombinasi input_string untuk mencari frase yang bisa menjadi suatu identifier / variabel.
+    Jika ya, cell CYK untuk frase tersebut akan diisi.
+    """
     IdentifierRules = set()
     for rules in v_rules:
         if rules[1] == ['IdentifierName']:
@@ -132,7 +127,23 @@ def checkForIdentifierNames(v_rules, input_string, table):
     return table
 
 # CYK
+def make_pairs(set_a, set_b):
+    """
+    Menerima 2 buah set dan mengembalikan array yang berisi setiap pasangan yang dapat dibentuk
+    oleh kedua set tersebut.
+    """
+    pairs_list = []
+    for a in set_a:
+        for b in set_b:
+            pairs_list.append([a,b])
+
+    return pairs_list
+
+
 def process_cyk_table(v_rules, t_rules, input_string, table):
+    """
+    Menerapkan algoritma CYK pada tabel
+    """
     string_length = len(input_string)
 
     # Proses baris pertama tabel (terminal symbol)
@@ -157,16 +168,25 @@ def process_cyk_table(v_rules, t_rules, input_string, table):
 
 
 if __name__ == '__main__':
+    # Pembacaan CNF
     v_rules, t_rules = read_cnf()
+
+    # Input nama file masukan
     filename = input("Masukkan nama file: ")
+
+    # Pembacaan file masukan
     input_string = read_input(filename)
-    print([input_string])
     
     # Buat tabel
     table = [[set() for _ in range(len(input_string) - i)] for i in range(len(input_string))]
+
+    # Cek Identifier / Variabel
     table = checkForIdentifierNames(v_rules, input_string, table)
+
+    # Lakukan Algoritma CYK
     table = process_cyk_table(v_rules, t_rules, input_string, table)
 
+    # Output hasil pengecekan syntax
     if 'S0' in table[len(input_string)-1][0]:
         print("Accepted!")
     else:

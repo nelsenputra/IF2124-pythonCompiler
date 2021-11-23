@@ -41,15 +41,6 @@ def seekAndDestroy(target, productions):
 			
 	return trash, ereased
  
-def setupDict(productions, variables, terms):
-	result = {}
-	for production in productions:
-		#
-		if production[left] in variables and production[right][0] in terms and len(production[right]) == 1:
-			result[production[right][0]] = production[left]
-	return result
-
-
 def rewrite(target, production):
 	result = []
 	#get positions corresponding to the occurrences of target in production right side
@@ -65,12 +56,6 @@ def rewrite(target, production):
  			tadan = [production[right][i] for i in range(len(production[right])) if i not in element]
  			if tadan != []:
  				result.append((production[left], tadan))
-	return result
-
-def dict2Set(dictionary):
-	result = []
-	for key in dictionary:
-		result.append( (dictionary[key], key) )
 	return result
 
 def pprintRules(rules):

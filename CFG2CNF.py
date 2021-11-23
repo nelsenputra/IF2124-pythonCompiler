@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#IT's assumed that starting variable is the first typed
 import sys, helper
 
 left, right = 0, 1
@@ -69,7 +67,6 @@ def START(productions, variables):
 #Remove rules containing both terms and variables, like A->Bc, replacing by A->BZ and Z->c–––––––––––TERM
 def TERM(productions, variables):
 	newProductions = []
-	#create a dictionari for all base production, like A->a, in the form dic['a'] = 'A'
 	for production in productions:
 		#check if the production is simple
 		if isSimple(production):
@@ -136,13 +133,13 @@ def DEL(productions):
 
 def unit_routine(rules, variables):
 	unitaries, result = [], []
-	#controllo se una regola è unaria
+	# Cek apakah rule unary
 	for aRule in rules:
 		if isUnitary(aRule, variables):
 			unitaries.append( (aRule[left], aRule[right][0]) )
 		else:
 			result.append(aRule)
-	#altrimenti controllo se posso sostituirla in tutte le altre
+	# Cek apakah bisa digantikan
 	for uni in unitaries:
 		for rule in rules:
 			if uni[right]==rule[left] and uni[left]!=rule[left]:
