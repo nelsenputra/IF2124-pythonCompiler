@@ -1,7 +1,8 @@
 A = 10
-if (A > 0):
-    print("positif")
-elif (A == 0):
-    print("nol")
+B = 10
+if (A > B):
+    print("A > B")
+elif (A is B):
+    print("A = B")
 else:
-    print("negatif")
+    print("A < B")
