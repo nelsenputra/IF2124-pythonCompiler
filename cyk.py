@@ -121,7 +121,7 @@ def checkForIdentifierNames(v_rules, input_string, table):
                     table[i][j] = IdentifierRules
                     if i != 0:
                         for k in range(i):
-                            for l in range(j, j+i+1):
+                            for l in range(j, j+i-k+1):
                                 table[k][l] = {'d'}
                         
     for i in range(len(input_string)):
