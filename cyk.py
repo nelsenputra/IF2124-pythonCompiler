@@ -51,7 +51,7 @@ def read_input():
     Membaca file input.py di folder yang sama dan mengubahnya menjadi sebuah string
     """
 
-    filename = os.path.join(os.curdir, "./test/if_elif_else.py")
+    filename = os.path.join(os.curdir, "./test/raise.py")
     with open(filename) as input_file:
         lines = input_file.readlines()
         input_string = ''
