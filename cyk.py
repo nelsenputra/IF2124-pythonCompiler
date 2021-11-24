@@ -151,9 +151,7 @@ def process_cyk_table(v_rules, t_rules, input_string, table):
         for rules in t_rules:
             if input_string[i] == rules[1]:
                 table[0][i].add(rules[0])
-        print(table[0][i])
-    
-    print("\n\n")
+
     # Proses sisa baris pada tabel (non-terminal symbol)
     for i in range(1, string_length):
         for j in range(string_length-i):
@@ -162,21 +160,26 @@ def process_cyk_table(v_rules, t_rules, input_string, table):
                 for rules in v_rules:
                     if rules[1] in pairs:
                         table[i][j].add(rules[0])
-            print(table[i][j])
-        print("\n\n")
     return table
 
 
 if __name__ == '__main__':
+    filename_found = False
     # Pembacaan CNF
     v_rules, t_rules = read_cnf()
 
-    # Input nama file masukan
-    filename = input("Masukkan nama file: ")
+    while not filename_found:
+        try :
+            # Input nama file masukan
+            filename = input("Masukkan nama file: ")
 
-    # Pembacaan file masukan
-    input_string = read_input(filename)
-    
+            # Pembacaan file masukan
+            input_string = read_input(filename)
+
+            filename_found = True
+        except:
+            print("File tidak ditemukan!")
+
     # Buat tabel
     table = [[set() for _ in range(len(input_string) - i)] for i in range(len(input_string))]
 
