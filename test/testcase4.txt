@@ -1,0 +1,5 @@
+def error(x):
+    elif (x == 0):
+        return 0
+    else: # x != 0
+        return 1

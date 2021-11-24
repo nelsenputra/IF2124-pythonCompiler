@@ -3,17 +3,25 @@
 
 
 ## Table of Contents
+* [Introduction](#introduction)
 * [General Information](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
-* [Screenshot](#screenshot)
 * [Setup](#setup)
-* [Usage](#usage)
 * [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
 * [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
-<!-- * [License](#license) -->
+
+
+## Introduction
+Hello, everyone! Welcome to our Github Repository!
+This project was created by the team you can see on the following table.
+| No. | Name | Student ID |
+| :---: | :---: | :---: |
+| 1. | Johannes Winson Sukiatmodjo | 13520123 |
+| 2. | Ignasius Ferry Priguna | 13520126 | 
+| 3. | Nelsen Putra | 13520130 |
 
 
 ## General Information
@@ -36,11 +44,6 @@ The whole program was written in Python.
 - [ ] Tell the user about the location and the details of the error(s) if any
 
 
-## Screenshot
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
-
-
 ## Setup
 ### Dependencies
 
@@ -58,30 +61,18 @@ The whole program was written in Python.
 
     `cd IF2124-pythonCompiler/???`
     
-3. Run `python ???.py` on the command line
-
-## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
-`write-your-code-here`
+3. Run `python cyk.py` on the command line
 
 
 ## Project Status
 Project is: _complete_
 
-All the specifications, including bonus were implemented.
+All the specifications, excluding bonus were implemented.
+
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
-Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
-
-To do:
-- Feature to be added 1
-- Feature to be added 2
+- A more advanced feature: telling the user about the location and the details of the error(s) if any
+- A faster or more efficient algorithm to make the program run quicker
 
 
 ## Acknowledgements
