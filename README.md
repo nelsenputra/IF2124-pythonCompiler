@@ -45,8 +45,6 @@ The whole program was written in Python.
 
 
 ## Setup
-### Dependencies
-
 ### Installation
 - Download and install [Python](https://www.python.org/downloads/)
 - Install the whole modules and [libraries](#library) used in the source code
