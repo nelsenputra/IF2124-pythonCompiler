@@ -57,9 +57,9 @@ The whole program was written in Python.
 
     `git clone https://github.com/nelsenputra/IF2124-pythonCompiler.git`
 
-2. Open the command line and change the directory to '???'
+2. Open the command line and change the directory to 'IF2124-pythonCompiler'
 
-    `cd IF2124-pythonCompiler/???`
+    `cd IF2124-pythonCompiler`
     
 3. Run `python cyk.py` on the command line
 
@@ -84,6 +84,10 @@ All the specifications, excluding bonus were implemented.
 
 
 ## Library
+- [sys](https://docs.python.org/3/library/sys.html)
+- [helper](https://pypi.org/project/helper/)
+- [re](https://docs.python.org/3/library/re.html)
+- [itertools](https://docs.python.org/3/library/itertools.html)
 - [os](https://docs.python.org/3/library/os.html)
 
 
